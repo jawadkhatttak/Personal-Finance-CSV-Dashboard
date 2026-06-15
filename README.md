@@ -5,7 +5,7 @@ Drop your bank's CSV export and get instant spending insights —
 no server, no account, no data ever leaves your machine.
 
 ## Live Demo
-[View Demo](https://YOUR-USERNAME.github.io/REPO-NAME)
+[View Demo]([https://YOUR-USERNAME.github.io/REPO-NAME](https://jawadkhatttak.github.io/Personal-Finance-CSV-Dashboard/))
 
 ## Features
 - Drag-and-drop CSV ingestion via the Browser File API
