@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- UPLOAD SECTION -->
+        <div class="header">
+            <h1>💰 Finance Dashboard</h1>
+            <p class="subtitle">Drop your bank CSV — nothing leaves your browser</p>
+            <button id="reset-btn" class="reset-btn hidden">↩ Load new file</button>
+        </div>
+
+        <div class="drop-zone" id="drop-zone">
+            <div class="drop-zone-content">
+                <span class="drop-icon">📂</span>
+                <p>Drag & drop your CSV here</p>
+                <p class="or-text">or</p>
+                <label for="file-input" class="file-label">Browse File</label>
+                <input type="file" id="file-input" accept=".csv" hidden />
+            </div>
+            <p id="upload-error" class="upload-error hidden"></p>
+        </div>
+
+        <!-- DASHBOARD — hidden until CSV loads -->
+        <div id="dashboard" class="hidden">
+            <!-- SUMMARY STATS -->
+            <div class="stats-grid">
+                <div class="stat-card income">
+                    <label>Total Income</label>
+                    <span id="total-income"></span>
+                </div>
+                <div class="stat-card expenses">
+                    <label>Total Expenses</label>
+                    <span id="total-expenses"></span>
+                </div>
+                <div class="stat-card balance">
+                    <label>Net Balance</label>
+                    <span id="net-balance"></span>
+                </div>
+            </div>
+
+            <!-- CHARTS -->
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>Spending by Category</h3>
+                    <canvas id="category-chart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Monthly Trend</h3>
+                    <canvas id="trend-chart"></canvas>
+                </div>
+            </div>
+
+            <!-- TRANSACTION TABLE -->
+            <div class="table-card">
+                <div class="table-header">
+                    <h3>Transactions</h3>
+                    <input type="text" id="search-input" placeholder="Search transactions..." />
+                </div>
+                <div class="table-wrapper">
+                    <table id="transactions-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
